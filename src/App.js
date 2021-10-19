@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import CheckoutForm from './components/MyCheckoutForm';
+import StripeContainer from './components/StripeContainer';
+import "./App.css"
 
-function App() {
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+// const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StripeContainer/>
   );
-}
+};
 
 export default App;
